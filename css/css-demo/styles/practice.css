@@ -1,0 +1,36 @@
+/*practice.css*/
+#contact-info {
+    font-size: .8em;
+}
+
+.job {
+    background-color: #e9e5dc;
+    border-radius: 10px;
+    padding-top: 1px; /*why is this so big?*/
+    padding-left: 5px;
+    /*padding-bottom: 1px;*/
+}
+
+/*from MDN: A CSS pseudo-class is a keyword added to selectors that 
+specifies a special state of the element to be selected. For example 
+:hover will apply a style when the user hovers over the element specified 
+by the selector.*/
+.job:hover {
+    background-color: blue;
+}
+
+.skills {
+    font-size: .8em;
+}
+
+/*selector to select a section*/
+section {
+    color: green;
+}
+
+section section {
+    color: purple;
+}
+
+
+
