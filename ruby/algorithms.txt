@@ -1,0 +1,12 @@
+- Enter elevator
+- Store current floor as cur_floor
+- Ask user what floor they would like to go to
+- Store user input as dest_floor
+- While cur_floor does not equal dest_floor
+    - If dest_floor - cur_floor is greater than 0
+        - Press the up button and go up one floor
+        - Add 1 to cur_floor
+    - Else
+        - Press the down button and go down one floor
+        - Subtract 1 from cur_floor
+- Exit elevator
