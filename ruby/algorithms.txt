@@ -1,0 +1,28 @@
+Release 0: Robot Working Elevator
+
+- Enter elevator
+- Store current floor as cur_floor
+- Ask user what floor they would like to go to
+- Store user input as dest_floor
+- While cur_floor does not equal dest_floor
+    - If dest_floor - cur_floor is greater than 0
+        - Press the up button and go up one floor
+        - Add 1 to cur_floor
+    - Else
+        - Press the down button and go down one floor
+        - Subtract 1 from cur_floor
+- Exit elevator
+
+
+Release 1: Braiding Hair
+- Remove all accessories from hair
+- Brush all hair to right side of head
+- Length_of_hair is 24 inches
+- Length_of_braid is 0 inches
+- Split hair into 3 equal pieces
+- While length_of_braid is less than length_of_hair - 1 inch
+    - Take the left most piece of hair and cross it over the middle piece so it is now the middle piece and the middle piece is now the left most piece
+    - Take the right most piece of hair and cross it over the middle piece so it is now the middle piece and the middle piece is now the right most piece
+    - Add 1 inch to length of braid
+- Attach hair tie to bottom of braid
+- Congratualations, your braid is beautiful!
