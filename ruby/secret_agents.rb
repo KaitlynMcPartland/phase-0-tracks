@@ -19,12 +19,13 @@ def encrpyt(password)
 
 		index_counter += 1
 	end
-
+	
 	puts password_var
+	password_var
 
 end
 
-encrpyt("zed")
+
 
 #Decrypt
 # iterate through the string
@@ -33,4 +34,26 @@ encrpyt("zed")
 
 
 def decrypt(decrypt_password)
-	
+	password_var = decrypt_password
+	password_index_counter = 0
+
+	alphabet = "abcdefghijklmnopqrstuvwxyz"
+
+	while password_index_counter < password_var.length
+		
+		if password_var[password_index_counter] == "a"
+			password_var[password_index_counter] = "z"
+		else
+			alphabet_index = alphabet.index(password_var[password_index_counter])
+			password_var[password_index_counter] = alphabet[alphabet_index - 1]
+		end
+		password_index_counter += 1
+	end
+	puts password_var
+	password_var
+
+end
+
+
+
+decrypt(encrpyt("swordfish"))
