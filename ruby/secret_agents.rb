@@ -19,7 +19,7 @@ def encrpyt(password)
 
 		index_counter += 1
 	end
-	
+
 	puts password_var
 	password_var
 
@@ -56,4 +56,37 @@ end
 
 
 
-decrypt(encrpyt("swordfish"))
+#decrypt(encrpyt("swordfish"))
+
+
+#Ask_secret_agent
+#Ask user if they want to encrypt or decrypt
+# Ask user for password
+#If user entered encrypt run encrypt method on password
+#if user enter decrypt run decrypt method on password
+
+def ask_secret_agent()
+
+	puts "Do you want to encrypt or decrypt your password?"
+	user_choice = gets.chomp
+
+	puts "What is your password?"
+	user_password = gets.chomp
+
+	if user_choice == "encrypt"
+		encrypt(user_password)
+	else
+		decrypt(user_password)
+	end
+
+end
+
+ask_secret_agent()
+
+
+
+
+
+
+
+
