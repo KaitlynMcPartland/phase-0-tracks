@@ -1,30 +1,40 @@
 def vampire_detector
 
-puts "What is your name?"
-name = gets.chomp
+puts "How many employees will be processed?"
+employees_processed = gets.chomp.to_i
+employee_counter = 1
 
-puts "How old are you?"
-age = gets.chomp
-puts "What year were you born?"
-birth_year = gets.chomp
+while employee_counter <= employees_processed
 
-knows_birthday = correct_birthday(age, birth_year)
+	puts "What is your name?"
+	name = gets.chomp
 
-puts "Our company cafeteria serves garlic bread. Should we order some for you?"
-likes_garlic = gets.chomp
+	puts "How old are you?"
+	age = gets.chomp
+	puts "What year were you born?"
+	birth_year = gets.chomp
 
-puts "Would you like to enroll in the company's health insurance?"
-wants_insurance = gets.chomp
+	knows_birthday = correct_birthday(age, birth_year)
 
-case 
-when knows_birthday && (likes_garlic == "yes" || wants_insurance == "yes")
-	puts "Probably not a vampire."
-when !knows_birthday && (likes_garlic != "yes" || wants_insurance != "yes")
-	puts "Almost certainly a vampire."
-when name == ("Drake Cula" || "Tu Fang")
-	puts "Definately a vampire."
-else
-	puts "Results inconclusive."
+	puts "Our company cafeteria serves garlic bread. Should we order some for you?"
+	likes_garlic = gets.chomp
+
+	puts "Would you like to enroll in the company's health insurance?"
+	wants_insurance = gets.chomp
+
+	case 
+		when knows_birthday && (likes_garlic == "yes" || wants_insurance == "yes")
+			puts "Probably not a vampire."
+		when !knows_birthday && (likes_garlic != "yes" || wants_insurance != "yes")
+			puts "Almost certainly a vampire."
+		when name == "Drake Cula" || "Tu Fang"
+			puts "Definately a vampire."
+		else
+			puts "Results inconclusive."
+	end
+
+	employee_counter += 1
+
 end
 
 end
@@ -37,8 +47,19 @@ def correct_birthday(age_check, birth_year_check)
 	else
 		return false
 	end
-
 	
 end
+
+
+
+
+
+
+
+
+
+
+
+
 
 vampire_detector
