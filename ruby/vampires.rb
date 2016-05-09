@@ -22,7 +22,24 @@ while employee_counter <= employees_processed
 	puts "Would you like to enroll in the company's health insurance?"
 	wants_insurance = gets.chomp
 
+	allergies_checked = false
+
+	until allergies_checked
+		sunshine_allergy = false
+		puts "Please list your allergies one at a time. When finished enter 'done'."
+		current_allergy = gets.chomp
+		if current_allergy == "sunshine"
+			sunshine_allergy = true
+			allergies_checked = true
+		elsif current_allergy == "done"
+			allergies_checked = true
+		end
+	end
+
+
 	case 
+		when sunshine_allergy == true
+			puts "Probably a vampire."
 		when knows_birthday && (likes_garlic == "yes" || wants_insurance == "yes")
 			puts "Probably not a vampire."
 		when !knows_birthday && (likes_garlic != "yes" || wants_insurance != "yes")
