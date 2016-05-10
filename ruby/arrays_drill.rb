@@ -1,3 +1,45 @@
+def array_adder(array, item)
+
+	added_array = array.push(item)
+end
+
+p array_adder(["Kaitlyn"], "rocks")
+
+p array_adder(["Andrea"], "does too!")
+
+p array_adder(["Kittens"], "are cuddly")
+
+
+
+def build_array(item1, item2, item3)
+
+item_array = [item1, item2, item3]
+
+end
+
+p build_array(1, "two", nil)
+
+
+	#return array [item1, item2, items3]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 new_array = []
 p new_array
 
