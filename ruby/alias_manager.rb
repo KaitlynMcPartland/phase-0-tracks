@@ -16,11 +16,20 @@
 #capitalize the first letter of each word
 
 
-def alias_manager (real_name)
-	reversed_name = switch_name(real_name.downcase.split(' '))
-	letter_swapped_name = letter_swap(reversed_name.join(' '))
-	final_alias = capitalize_words(letter_swapped_name)
-	puts "Your alias name is #{final_alias}"
+def alias_manager
+	quit = false
+	until quit
+		puts "What is the name you'd like an alias for? Type quit to exit."
+		real_name = gets.chomp
+		if real_name == "quit"
+			quit = true
+		else
+			reversed_name = switch_name(real_name.downcase.split(' '))
+			letter_swapped_name = letter_swap(reversed_name.join(' '))
+			final_alias = capitalize_words(letter_swapped_name)
+			puts "Your alias name is #{final_alias}"
+		end
+	end
 
 end
 
@@ -61,4 +70,4 @@ end
 
 
 
-alias_manager("Abu Dez")
+alias_manager
