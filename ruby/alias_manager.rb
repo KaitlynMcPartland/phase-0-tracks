@@ -18,6 +18,7 @@
 
 def alias_manager
 	quit = false
+	real_alias_names_hash = Hash.new
 	until quit
 		puts "What is the name you'd like an alias for? Type quit to exit."
 		real_name = gets.chomp
@@ -28,7 +29,12 @@ def alias_manager
 			letter_swapped_name = letter_swap(reversed_name.join(' '))
 			final_alias = capitalize_words(letter_swapped_name)
 			puts "Your alias name is #{final_alias}"
+			real_alias_names_hash[real_name] = final_alias
 		end
+	end
+
+	real_alias_names_hash.each do |real_k, alias_v|
+		puts "#{real_k} is also known as #{alias_v}"
 	end
 
 end
