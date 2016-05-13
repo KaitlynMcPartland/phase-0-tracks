@@ -13,13 +13,23 @@
 	#elsif ' ' push ' '
 	#elseif letter is 'd', 'h', 'n' or 't' push the letter.next.next to new variable
 	#else push letter.next to new variable
+#capitalize the first letter of each word
 
 
 def alias_manager (real_name)
-	reversed_name = switch_name(real_name.split(' '))
-	alias_name = letter_swap(reversed_name.join(' '))
-	puts "Your alias name is #{alias_name}"
+	reversed_name = switch_name(real_name.downcase.split(' '))
+	letter_swapped_name = letter_swap(reversed_name.join(' '))
+	final_alias = capitalize_words(letter_swapped_name)
+	puts "Your alias name is #{final_alias}"
 
+end
+
+def capitalize_words (uncapped_name)
+	capped_name = []
+	uncapped_name.split(' ').each do |word|
+		capped_name.push(word.capitalize)
+	end
+	capped_name.join(' ')
 end
 
 def switch_name (ordered_name)
@@ -51,4 +61,4 @@ end
 
 
 
-alias_manager("abu dez")
+alias_manager("Abu Dez")
