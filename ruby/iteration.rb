@@ -76,7 +76,75 @@ end
 puts new_array
 
 
+##Hash practice for Release 2
+#1
+new_hash = {
+	"a" => 100,
+	"b" => 200,
+	"c" => 300,
+	"d" => 400,
+	"e" => 500,
+	"f" => 600
+}
 
+new_hash.delete_if do |key, value|
+	value > 300
+end
+
+puts new_hash
+
+#2
+new_hash = {
+	"a" => 100,
+	"b" => 200,
+	"c" => 300,
+	"d" => 400,
+	"e" => 500,
+	"f" => 600
+}
+
+new_hash.keep_if do |key, value|
+	value > 300
+end
+
+puts new_hash
+
+#3
+new_hash = {
+	"a" => 100,
+	"b" => 200,
+	"c" => 300,
+	"d" => 400,
+	"e" => 500,
+	"f" => 600
+}
+
+new_hash.select! do |key, value|
+	value > 300
+end
+
+puts new_hash
+
+#4
+
+new_hash = {
+	"a" => 100,
+	"b" => 200,
+	"c" => 300,
+	"d" => 400,
+	"e" => 500,
+	"f" => 600
+}
+
+new_hash.each do |key, value|
+	if value != 300
+		new_hash.delete(key)
+	else
+		break
+	end
+end
+
+puts new_hash
 
 
 
