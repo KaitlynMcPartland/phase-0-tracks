@@ -1,4 +1,5 @@
 class Santa
+
 #initialize method
 	def initialize(gender, ethnicity)
 		puts "Initializing Santa instance..."
@@ -9,30 +10,38 @@ class Santa
 	end
 
 #getter methods
-	def age
-		@age
-	end
+	attr_reader :age, :ethnicity, :reindeer_ranking
 
-	def ethnicity
-		@ethnicity
-	end
+	# def age
+	# 	@age
+	# end
 
-	def gender
-		@gender
-	end
+	# def ethnicity
+	# 	@ethnicity
+	# end
 
-	def reindeer_ranking
-		@reindeer_ranking
-	end
+	# def gender
+	# 	@gender
+	# end
+
+	# def reindeer_ranking
+	# 	@reindeer_ranking
+	# end
 
 #setter methods
-	def gender=(new_gender)
-		@gender = new_gender
-	end
+	attr_accessor :gender
+
+	# def gender=(new_gender)
+	# 	@gender = new_gender
+	# end
 
 	def get_mad_at(reindeer)
 		@reindeer_ranking.delete(reindeer)
 		@reindeer_ranking << reindeer
+	end
+
+	def celebrate_birthday
+		@age = @age + 1
 	end
 
 #other methods
@@ -43,12 +52,6 @@ class Santa
 	def eat_milk_and_cookies (cookie_type)
 		puts "That was a good #{cookie_type}"
 	end
-
-	def celebrate_birthday
-		@age = @age + 1
-	end
-
-
 
 end
 
