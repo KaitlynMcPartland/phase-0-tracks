@@ -10,7 +10,7 @@ class Santa
 	end
 
 #getter methods
-	attr_reader :age, :ethnicity, :reindeer_ranking
+	attr_reader :ethnicity, :reindeer_ranking
 
 	# def age
 	# 	@age
@@ -29,7 +29,7 @@ class Santa
 	# end
 
 #setter methods
-	attr_accessor :gender
+	attr_accessor :age, :gender
 
 	# def gender=(new_gender)
 	# 	@gender = new_gender
@@ -54,6 +54,25 @@ class Santa
 	end
 
 end
+
+#Santa generating method
+def santa_maker(total_santas)
+	example_genders = ["agender", "female", "bigender", "male", "female", "gender fluid", "N/A"]
+	example_ethnicities = ["black", "Latino", "white", "Japanese-African", "prefer not to say", "Mystical Creature (unicorn)", "N/A"]
+
+	total_santas.times do |num|
+		num = Santa.new(example_genders.sample, example_ethnicities.sample)
+		num.age = Random.rand(0...140)
+		p num.age
+		p num.ethnicity
+		p num.gender
+		p num.reindeer_ranking
+	end
+
+end
+
+#method call
+santa_maker(10)
 
 
 #Driver Code
