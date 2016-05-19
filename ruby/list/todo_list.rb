@@ -10,4 +10,12 @@ class TodoList
 	def add_item(new_chore)
 		@chores_list << new_chore
 	end
+
+	def delete_item(deleted_chore)
+		@chores_list.delete(deleted_chore)
+	end
+
+	def get_item(index)
+		p @chores_list[index]
+	end
 end
