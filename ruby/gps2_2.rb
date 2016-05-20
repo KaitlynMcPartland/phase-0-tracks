@@ -58,9 +58,41 @@ add_or_update_item(grocery_list,"ice cream",1)
 print_list(grocery_list)
 
 
+##Review and Reflect
+# What did you learn about pseudocode from working on this challenge?
+# It was interesting to pseudocode as a part of the actual pairing challenge,
+# my pair had a different approach to pseudocode than I did and it was good to
+# be exposed to that. Good pseudocode can definately make writing the actual code
+# a lot easier and it forces you to really break down the things you want to do
+# into manageable sections.
 
 
+# What are the tradeoffs of using arrays and hashes for this challenge?
+# For this challenge it made the most sense to use a hash because the 
+# list item - quantity relationship lends itself well to the key-value structure
+# of hashes. We could have used arrays and either had two seperate arrays or one
+# and some sort of work around to access the index pairs we wanted but that seems
+# like unnecessary work and added difficulty.
 
+# What does a method return?
+# If you explicitly say 'return' in the method, it will return that, otherwise 
+# a method returns the last line of executable code as it's implicit return.
+
+# What kind of things can you pass into methods as arguments?
+# You can pass almost everything we've worked with so far, strings, integers, arrays
+# hashes, variables, etc)
+
+# How can you pass information between methods?
+# You can pass information between methods by passing something into the method
+# via the methods parameter and you can get information out of the method via the
+# return. In this case we set a variable equal to the value/return of a method and 
+# then passed that variable in as the argument for other methods.
+
+# What concepts were solidified in this challenge, and what concepts are still confusing?
+# I'd have to say the concept of passing information between methods was solidified 
+# for me. I've had a little experience with it in the past but this was a good refresher
+# on it and I think that continued exposure adn practice with it will help me be 
+# really comfortable with it.
 
 
 
