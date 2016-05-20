@@ -48,13 +48,15 @@ end
 
 ##Driver code
 grocery_list = create_new_list("carrots apples cereal pizza")
-p grocery_list
-add_or_update_item(grocery_list, "carrots", 12)
-p grocery_list
-add_or_update_item(grocery_list, "blueberries")
-p grocery_list
-remove_item(grocery_list, "carrots")
+add_or_update_item(grocery_list,"lemonade",2)
+add_or_update_item(grocery_list,"tomatoes",3)
+add_or_update_item(grocery_list,"onions")
+add_or_update_item(grocery_list,"ice cream",4)
+remove_item(grocery_list,"lemonade")
+add_or_update_item(grocery_list,"ice cream",1)
+
 print_list(grocery_list)
+
 
 
 
