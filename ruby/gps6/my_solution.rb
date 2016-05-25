@@ -21,15 +21,15 @@ class VirusPredictor
   #calls the predicted_deaths and speed_of_spread because the other methods are private
   #and can't be called directly
   def virus_effects
-    predicted_deaths(@population_density, @population, @state)
-    speed_of_spread(@population_density, @state)
+    predicted_deaths
+    speed_of_spread
   end
 
   private
 
   #A conditional method that calculates and outputs the number of deaths based on the
   #instance variable @population_density for the instance
-  def predicted_deaths(population_density, population, state)
+  def predicted_deaths
     # predicted deaths is solely based on population density
     if @population_density >= 200
       number_of_deaths = (@population * 0.4).floor
@@ -49,7 +49,7 @@ class VirusPredictor
 
   #A conditional method that calculates and outputs the speed_of_spread based on the
   #instance variable @population_density for the instance
-  def speed_of_spread(population_density, state) #in months
+  def speed_of_spread #in months
     # We are still perfecting our formula here. The speed is also affected
     # by additional factors we haven't added into this functionality.
     speed = 0.0
@@ -77,10 +77,12 @@ end
 # DRIVER CODE
  # initialize VirusPredictor for each state
 
-STATE_DATA.each do |state, population_info|
-  current_state = VirusPredictor.new(state, population_info[:population_density], population_info[:population])
-  current_state.virus_effects
-end
+# STATE_DATA.each do |state, population_info|
+#   current_state = VirusPredictor.new(state, population_info[:population_density], population_info[:population])
+#   current_state.virus_effects
+# end
+
+
 
 
 # alabama = VirusPredictor.new("Alabama", STATE_DATA["Alabama"][:population_density], STATE_DATA["Alabama"][:population])
