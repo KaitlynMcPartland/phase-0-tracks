@@ -132,3 +132,40 @@ end
 
 #=======================================================================
 # Reflection Section
+
+
+# What are the differences between the two different hash syntaxes shown in the state_data file?
+# The first hash uses the hash rocket syntax, which allows anything in the ruby language to be 
+# the key, although strings and symbols are most common. The second hash (the nested hash) uses
+# the symbol syntax symbol:, with this you can only use a symbol as the key
+
+# What does require_relative do? How is it different from require?
+# Require relative allows you to access the data from another file in a relative directory
+# in your current file (the file where you are declaring require_relative). You would 
+# use when looking for a file in the same directory or a file in another directory 
+# if you put the file path in. On the other hand, require  is used to allow access to
+# things in the core ruby libraries (ie modules and gems) and that is where it will start it's
+# search.
+
+
+# What are some ways to iterate through a hash?
+# You can iterate through a hash by using the .each, .each_key, and .each_value methods
+
+
+# When refactoring virus_effects, what stood out to you about the variables, if anything?
+# It immediately stood out to me that instance variables were being passed in as parameters.
+# You can use arguments/parameters to pass information from one method to another but since
+# instance variables are available in every class method there was no need for this.
+
+# What concept did you most solidify in this challenge?
+# The information about class methods that Aji went over in my GPS comments was really helpful.
+# It was something that I had very little understanding of before and after his comments and
+# some of my own research I definately feel more comfortable with.
+
+
+
+
+
+
+
+
