@@ -4,20 +4,29 @@
 //loop through the array
 	// if current phrase.length is > longest current phrase
 	// set longest current phrase = current phrase
+	// else if the phrase is the same length as the longest phrase add to array and return both
+		//didn't specify to do this (return two equal max length phrases) in instructions but seems like the right thing to do
 //return longest current phrase array
+
+
 
 function longestPhrase (arrayOfPhrases) {
 	var curLongestPhrase = [""];
-
-	for (var i = 0; i < arrayOfPhrases.length; i++){
-		if (arrayOfPhrases[i].length > curLongestPhrase[0].length){
-			curLongestPhrase = [arrayOfPhrases[i]];
+	var counter = 0;
+	while (counter < arrayOfPhrases.length) {
+		if (arrayOfPhrases[counter].length > curLongestPhrase[0].length){
+			curLongestPhrase = [arrayOfPhrases[counter]];
 			//console.log(curLongestPhrase);
+		} else if (arrayOfPhrases[counter].length === curLongestPhrase[0].length) {
+			curLongestPhrase.push(arrayOfPhrases[counter]);
 		}
+
+		counter += 1;
 	}
 
 	return curLongestPhrase;
 }
+
 
 //compare two objects function
 //iterate through first object using a for loop
@@ -84,18 +93,19 @@ function randomArrayBuilder (arrayLength){
 //driver code/ tests
 //longestPhrase tests
 
-//console.log(longestPhrase(["firstest phrase", "second phrase", "longest phrase for sure", "fourth"]));
-//console.log(longestPhrase(["short", "medium", "other", "longest"]))
+console.log(longestPhrase(["firstest phrase", "second phrase", "longest phrase for sure", "fourth"]));
+console.log(longestPhrase(["short", "medium", "other", "longest"]));
+console.log(longestPhrase(["tiedforlongest", "short", "other", "tiedforlongest"]));
 
 
 
 //keyValueMatch tests
 
-// console.log(keyValueMatch ({name: "Steven", age: 54}, {name: "Tammy", age: 54}));
-// console.log(keyValueMatch ({name: "Steven", age: 20}, {name: "Tammy", age: 54}));
-// console.log(keyValueMatch ({job: "lawyer", school: "Duke", position: "associate"}, {name: "Tammy", age: 54}));
-// console.log(keyValueMatch ({job: "lawyer", school: "Duke", position: "associate", age: 54}, {name: "Tammy", age: 54}));
-// console.log(keyValueMatch ({job: "lawyer", school: "Duke", position: "associate", 'age': 54}, {name: "Tammy", age: 54}));
+console.log(keyValueMatch ({name: "Steven", age: 54}, {name: "Tammy", age: 54}));
+console.log(keyValueMatch ({name: "Steven", age: 20}, {name: "Tammy", age: 54}));
+console.log(keyValueMatch ({job: "lawyer", school: "Duke", position: "associate"}, {name: "Tammy", age: 54}));
+console.log(keyValueMatch ({job: "lawyer", school: "Duke", position: "associate", age: 54}, {name: "Tammy", age: 54}));
+console.log(keyValueMatch ({job: "lawyer", school: "Duke", position: "associate", 'age': 54}, {name: "Tammy", age: 54}));
 
 
 
@@ -103,5 +113,25 @@ function randomArrayBuilder (arrayLength){
 console.log(randomArrayBuilder(3));
 console.log(randomArrayBuilder(5));
 console.log(randomArrayBuilder(0));
+
+//driver code that does the following 10 times: generates an array, 
+//prints the array, feeds the array to your "longest word" function, and prints the result.
+// **** instructions didn't specify length of arrays to do this for so I made the array lengths
+// a random length between 1 and 10 *****
+
+var counter = 0;
+while (counter < 10){
+	var lengthOfArray = Math.floor(Math.random() * 10) + 1;
+	var generatedArray = randomArrayBuilder(lengthOfArray);
+	console.log("generated array is " + generatedArray);
+
+	console.log("longest phrase is current array is " + longestPhrase(generatedArray));
+	counter += 1;
+}
+
+
+
+
+
 
 
