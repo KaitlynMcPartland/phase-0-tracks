@@ -1,0 +1,48 @@
+1. Display the information in one table (either table is fine).
+sqlite> SELECT * FROM paintings;
+1|Birth of Venus|1480|1
+2|Primavera|1482|1
+3|Pallas and the Centaur|1482|1
+4|Troubled Queen|1945|2
+5|Enchanted Forest|1947|2
+6|The Starry Night|1889|3
+
+2. Update an item that meets some condition (you can choose a condition that makes sense).
+sqlite> UPDATE paintings SET date=1483 WHERE date=1482;
+sqlite> SELECT * FROM paintings;
+1|Birth of Venus|1480|1
+2|Primavera|1483|1
+3|Pallas and the Centaur|1483|1
+4|Troubled Queen|1945|2
+5|Enchanted Forest|1947|2
+6|The Starry Night|1889|3
+
+3. Display the information in both tables using one query.
+sqlite> SELECT * FROM paintings, artists WHERE paintings.artist_id = artists.id;
+1|Birth of Venus|1480|1|1|Boticelli|false
+2|Primavera|1483|1|1|Boticelli|false
+3|Pallas and the Centaur|1483|1|1|Boticelli|false
+4|Troubled Queen|1945|2|2|Pollock|false
+5|Enchanted Forest|1947|2|2|Pollock|false
+6|The Starry Night|1889|3|3|Van Gogh|false
+
+4. Display a narrower selection of columns (fewer columns than all of them, in other words) from both tables using one query.
+sqlite> SELECT paintings.name, paintings.date, artists.name FROM paintings JOIN artists ON paintings.artist_id = artists.id;
+Birth of Venus|1480|Boticelli
+Primavera|1483|Boticelli
+Pallas and the Centaur|1483|Boticelli
+Troubled Queen|1945|Pollock
+Enchanted Forest|1947|Pollock
+The Starry Night|1889|Van Gogh
+
+
+5. Delete an item that meets some condition (you can choose a condition that makes sense).
+sqlite> DELETE FROM paintings WHERE date=1480;
+sqlite> SELECT * FROM paintings;
+2|Primavera|1483|1
+3|Pallas and the Centaur|1483|1
+4|Troubled Queen|1945|2
+5|Enchanted Forest|1947|2
+6|The Starry Night|1889|3
+
+
