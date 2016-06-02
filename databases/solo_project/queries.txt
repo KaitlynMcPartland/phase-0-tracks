@@ -1,0 +1,24 @@
+1. Display the information in one table (either table is fine).
+sqlite> SELECT * FROM paintings;
+|Birth of Venus|1480|1
+|Primavera|1482|1
+|Pallas and the Centaur|1482|1
+|Troubled Queen|1945|2
+|Enchanted Forest|1947|2
+|The Starry Night|1889|3
+
+2. Update an item that meets some condition (you can choose a condition that makes sense).
+sqlite> UPDATE paintings SET date=1483 WHERE date=1482;
+sqlite> SELECT * FROM paintings;
+|Birth of Venus|1480|1
+|Primavera|1483|1
+|Pallas and the Centaur|1483|1
+|Troubled Queen|1945|2
+|Enchanted Forest|1947|2
+|The Starry Night|1889|3
+
+3. Display the information in both tables using one query.
+
+4. Display a narrower selection of columns (fewer columns than all of them, in other words) from both tables using one query.
+
+5. Delete an item that meets some condition (you can choose a condition that makes sense).
