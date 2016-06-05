@@ -46,3 +46,27 @@ sqlite> SELECT * FROM paintings;
 6|The Starry Night|1889|3
 
 
+
+Release 3
+Added artist to artist table that isnt referenced in paintings table
+Added painting to paintings table that doesn't have an artist in the artists tabble
+
+Left Join
+SELECT paintings.name, paintings.date, artists.name FROM paintings LEFT JOIN artists ON paintings.artist_id = artists.id;
+Primavera|1483|Boticelli
+Pallas and the Centaur|1483|Boticelli
+Troubled Queen|1945|Pollock
+Enchanted Forest|1947|Pollock
+The Starry Night|1889|Van Gogh
+Purple Jumping Man|1962|
+
+INNER JOIN (default join)
+sqlite> SELECT paintings.name, artists.name FROM paintings JOIN artists ON paintings.artist_id = artists.id;
+Primavera|Boticelli
+Pallas and the Centaur|Boticelli
+Troubled Queen|Pollock
+Enchanted Forest|Pollock
+The Starry Night|Van Gogh
+
+
+
