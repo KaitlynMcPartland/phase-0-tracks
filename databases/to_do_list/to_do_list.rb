@@ -85,9 +85,9 @@ end
 
 puts "What would you like to do with #{current_table} to-do list?
 To view list enter 'view'.
+To add a task enter 'add'.
 To complete a task and remove it from your list enter 'complete'.
 To update a task enter 'update'.
-To add a task enter 'add'.
 To change to a different to-do list enter 'change'.
 If you are done working with your to-do lists enter 'exit'."
 
@@ -101,6 +101,14 @@ when 'add'
 	puts "What is this tasks due date?"
 	new_task_due = gets.chomp
 	to_do_db.execute("INSERT INTO #{current_table} (task, due_date) VALUES ('#{new_task}', '#{new_task_due}')")
+	puts "Updated to-do list:"
+	puts to_do_db.execute("SELECT * FROM #{current_table}")
+when 'complete'
+	puts to_do_db.execute("SELECT task FROM #{current_table}")
+	puts "Which task would you like to complete?"
+	task_to_complete = gets.chomp
+	to_do_db.execute("DELETE FROM #{current_table} WHERE task = '#{task_to_complete}'")
+	puts "Updated to-do list:"
 	puts to_do_db.execute("SELECT * FROM #{current_table}")
 else
 	puts "Enter a valid entry next time."
