@@ -115,11 +115,17 @@ while still_working
 		puts to_do_db.execute("SELECT * FROM #{current_table}")
 		puts "Which task would you like to update?"
 		task_to_update = gets.chomp
+		#puts (to_do_db.execute("SELECT EXISTS(SELECT 1 FROM #{current_table} WHERE task = '#{task_to_update}'"))
 		puts "What is the new due date?"
 		new_due_date = gets.chomp
 		to_do_db.execute("UPDATE #{current_table} SET due_date = '#{new_due_date}' WHERE task = '#{task_to_update}'")
 		puts "Updated to-do list:"
 		puts to_do_db.execute("SELECT * FROM #{current_table}")
+	when 'change'
+		puts "These are your existing to-do lists:"
+		puts to_do_db.execute("SELECT name FROM sqlite_master WHERE type='table'")
+		puts "What to-do list would you like to work with?"
+		current_table = gets.chomp.downcase
 	when 'exit'
 		still_working = false
 	else
