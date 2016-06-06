@@ -29,11 +29,10 @@
 ## DELETE FROM current_table WHERE task = (task_to_delete)
 ## view to-do list
 
-## when "Update task"
+## when "Update due date"
 ## Ask which task they would like to update (and store as variable)
-## Ask what they would like to update, task or due date (store as variable)
-## Ask what they would like the new value to be (store as variable)
-## UPDATE current_table SET atb_to_update = new_atb_vale WHERE task = task_to_update
+## Ask what they would like the new due date to be (store as variable)
+## UPDATE current_table SET due_date = new_atb_vale WHERE task = task_to_update
 ## view to-do list
 
 ## when "Add task"
@@ -87,7 +86,7 @@ puts "What would you like to do with #{current_table} to-do list?
 To view list enter 'view'.
 To add a task enter 'add'.
 To complete a task and remove it from your list enter 'complete'.
-To update a task enter 'update'.
+To update a tasks due date enter 'update'.
 To change to a different to-do list enter 'change'.
 If you are done working with your to-do lists enter 'exit'."
 
@@ -108,6 +107,15 @@ when 'complete'
 	puts "Which task would you like to complete?"
 	task_to_complete = gets.chomp
 	to_do_db.execute("DELETE FROM #{current_table} WHERE task = '#{task_to_complete}'")
+	puts "Updated to-do list:"
+	puts to_do_db.execute("SELECT * FROM #{current_table}")
+when 'update'
+	puts to_do_db.execute("SELECT * FROM #{current_table}")
+	puts "Which task would you like to update?"
+	task_to_update = gets.chomp
+	puts "What is the new due date?"
+	new_due_date = gets.chomp
+	to_do_db.execute("UPDATE #{current_table} SET due_date = '#{new_due_date}' WHERE task = '#{task_to_update}'")
 	puts "Updated to-do list:"
 	puts to_do_db.execute("SELECT * FROM #{current_table}")
 else
