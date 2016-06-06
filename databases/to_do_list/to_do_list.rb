@@ -83,7 +83,28 @@ elsif new_or_old_table == "existing"
 	current_table = gets.chomp.downcase
 end
 
+puts "What would you like to do with #{current_table} to-do list?
+To view list enter 'view'.
+To complete a task and remove it from your list enter 'complete'.
+To update a task enter 'update'.
+To add a task enter 'add'.
+To change to a different to-do list enter 'change'.
+If you are done working with your to-do lists enter 'exit'."
 
+to_do = gets.chomp.downcase
+case to_do
+when 'view'
+	puts to_do_db.execute("SELECT * FROM #{current_table}")
+when 'add'
+	puts "What is the task you'd like to add?"
+	new_task = gets.chomp
+	puts "What is this tasks due date?"
+	new_task_due = gets.chomp
+	to_do_db.execute("INSERT INTO #{current_table} (task, due_date) VALUES ('#{new_task}', '#{new_task_due}')")
+	puts to_do_db.execute("SELECT * FROM #{current_table}")
+else
+	puts "Enter a valid entry next time."
+end
 
 
 
