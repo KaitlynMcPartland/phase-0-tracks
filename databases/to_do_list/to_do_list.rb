@@ -1,5 +1,8 @@
-##Make a to do list
-#Ask user if they want to make a new to do list or view an existing one
+##To do list program
+## Create a to-do list database
+## to_do_db = SQLite3::Database.new("to_do_lists.db")
+
+## Ask user if they want to make a new to do list or view an existing one
 
 ## If they say 'New' Create a new to do list
 ## Ask user for new table name
@@ -50,3 +53,37 @@
 ## else
 ## puts please enter a valid input
 ## end
+
+require 'sqlite3'
+
+to_do_db = SQLite3::Database.new("lists.db")
+
+puts "If you would like to create a new table enter 'new', 
+if you would like to work with an existing table enter 'existing'."
+new_or_old_table = gets.chomp.downcase
+
+if new_or_old_table == "new"
+	puts "What would you like to call your new to-do list?"
+	new_table = gets.chomp.downcase
+
+	create_table_cmd = <<-SQL
+		CREATE TABLE IF NOT EXISTS #{new_table}(
+		id INTEGER PRIMARY KEY,
+		task VARCHAR(500),
+		due_date VARCHAR(100)
+		)
+		SQL
+	to_do_db.execute(create_table_cmd)
+
+	current_table = new_table
+elsif new_or_old_table == "existing"
+	puts "These are your existing to-do lists:"
+	puts to_do_db.execute("SELECT name FROM sqlite_master WHERE type='table'")
+	puts "What to-do list would you like to work with?"
+	current_table = gets.chomp.downcase
+end
+
+
+
+
+
