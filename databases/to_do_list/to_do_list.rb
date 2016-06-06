@@ -82,44 +82,49 @@ elsif new_or_old_table == "existing"
 	current_table = gets.chomp.downcase
 end
 
-puts "What would you like to do with #{current_table} to-do list?
-To view list enter 'view'.
-To add a task enter 'add'.
-To complete a task and remove it from your list enter 'complete'.
-To update a tasks due date enter 'update'.
-To change to a different to-do list enter 'change'.
-If you are done working with your to-do lists enter 'exit'."
+still_working = true
+while still_working
+	puts "What would you like to do with #{current_table} to-do list?
+	To view list enter 'view'.
+	To add a task enter 'add'.
+	To complete a task and remove it from your list enter 'complete'.
+	To update a tasks due date enter 'update'.
+	To change to a different to-do list enter 'change'.
+	If you are done working with your to-do lists enter 'exit'."
 
-to_do = gets.chomp.downcase
-case to_do
-when 'view'
-	puts to_do_db.execute("SELECT * FROM #{current_table}")
-when 'add'
-	puts "What is the task you'd like to add?"
-	new_task = gets.chomp
-	puts "What is this tasks due date?"
-	new_task_due = gets.chomp
-	to_do_db.execute("INSERT INTO #{current_table} (task, due_date) VALUES ('#{new_task}', '#{new_task_due}')")
-	puts "Updated to-do list:"
-	puts to_do_db.execute("SELECT * FROM #{current_table}")
-when 'complete'
-	puts to_do_db.execute("SELECT task FROM #{current_table}")
-	puts "Which task would you like to complete?"
-	task_to_complete = gets.chomp
-	to_do_db.execute("DELETE FROM #{current_table} WHERE task = '#{task_to_complete}'")
-	puts "Updated to-do list:"
-	puts to_do_db.execute("SELECT * FROM #{current_table}")
-when 'update'
-	puts to_do_db.execute("SELECT * FROM #{current_table}")
-	puts "Which task would you like to update?"
-	task_to_update = gets.chomp
-	puts "What is the new due date?"
-	new_due_date = gets.chomp
-	to_do_db.execute("UPDATE #{current_table} SET due_date = '#{new_due_date}' WHERE task = '#{task_to_update}'")
-	puts "Updated to-do list:"
-	puts to_do_db.execute("SELECT * FROM #{current_table}")
-else
-	puts "Enter a valid entry next time."
+	to_do = gets.chomp.downcase
+	case to_do
+	when 'view'
+		puts to_do_db.execute("SELECT * FROM #{current_table}")
+	when 'add'
+		puts "What is the task you'd like to add?"
+		new_task = gets.chomp
+		puts "What is this tasks due date?"
+		new_task_due = gets.chomp
+		to_do_db.execute("INSERT INTO #{current_table} (task, due_date) VALUES ('#{new_task}', '#{new_task_due}')")
+		puts "Updated to-do list:"
+		puts to_do_db.execute("SELECT * FROM #{current_table}")
+	when 'complete'
+		puts to_do_db.execute("SELECT task FROM #{current_table}")
+		puts "Which task would you like to complete?"
+		task_to_complete = gets.chomp
+		to_do_db.execute("DELETE FROM #{current_table} WHERE task = '#{task_to_complete}'")
+		puts "Updated to-do list:"
+		puts to_do_db.execute("SELECT * FROM #{current_table}")
+	when 'update'
+		puts to_do_db.execute("SELECT * FROM #{current_table}")
+		puts "Which task would you like to update?"
+		task_to_update = gets.chomp
+		puts "What is the new due date?"
+		new_due_date = gets.chomp
+		to_do_db.execute("UPDATE #{current_table} SET due_date = '#{new_due_date}' WHERE task = '#{task_to_update}'")
+		puts "Updated to-do list:"
+		puts to_do_db.execute("SELECT * FROM #{current_table}")
+	when 'exit'
+		still_working = false
+	else
+		puts "Enter a valid entry next time."
+	end
 end
 
 
