@@ -1,0 +1,6 @@
+#jQuery study plan
+- Try and find a mozilla doc on it
+- Search for jQuery cheat sheets
+- Check if there are any code academy courses
+- Try to test any major topic out once you have a basic understanding of it
+- Tke 2 breaks over the two hours - breaks are proven to increase your learning potential
